@@ -18,7 +18,8 @@ function App() {
       <br /> */}
       {/* <CreateAccount /> */}
       {/* <LoginV /> */}
-      {/* <PizzaContainer /> */}
+      <PizzaContainer />
+      <br />
       <UserContainer />
     </div>
   )

@@ -4,9 +4,8 @@ import { addUser, removeUser, resetUser } from '../../../redux/user/userActions'
 
 const UserContainer = () => {
     const dispatch = useDispatch()
-    const users = useSelector(state => state)
+    const users = useSelector(state => state.user)
     const [input, setInput] = useState("")
-
 
     const addUserHandler = () => {
         dispatch(addUser(input))
@@ -24,7 +23,6 @@ const UserContainer = () => {
     }
 
 
-    console.log(users)
   return (
     <div className="space-y-4">
         <h1 className="text-3xl"><strong>User Container</strong></h1>
@@ -34,6 +32,11 @@ const UserContainer = () => {
             <button className="bg-red-500 text-white px-3 py-2 rounded-md" onClick={removeUserHandler}>Remove User</button>
             <button className="bg-indigo-500 text-white px-3 py-2 rounded-md" onClick={resetUserHandler}>Reset User List</button>
         </div>
+        <ul>
+            {users.map((name, idx) => {
+                return <li key={idx} className="text-2xl">{name}</li>
+            })}
+        </ul>
     </div>)
 }
 
