@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { addUser, removeUser, resetUser } from '../../../redux/user/userActions'
 
 const UserContainer = () => {
@@ -32,9 +33,13 @@ const UserContainer = () => {
             <button className="bg-red-500 text-white px-3 py-2 rounded-md" onClick={removeUserHandler}>Remove User</button>
             <button className="bg-indigo-500 text-white px-3 py-2 rounded-md" onClick={resetUserHandler}>Reset User List</button>
         </div>
-        <ul>
+        <ul className='space-y-2 border rounded-md p-4'>
             {users.map((name, idx) => {
-                return <li key={idx} className="text-2xl">{name}</li>
+                return <li key={idx} className="text-2xl">
+                    <Link to={`/user/${name}`}>
+                        {name}
+                    </Link>
+                </li>
             })}
         </ul>
     </div>)

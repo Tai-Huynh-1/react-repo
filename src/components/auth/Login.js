@@ -4,13 +4,11 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Link } from 'react-router-dom'
 
 const schema = yup.object().shape({
-    firstName: yup.string().min(3, "First name must be 3+ characters").required("First name is required."),
-    lastName: yup.string().min(3, "Last name must be 3+ characters").required("Last name is required."),
     email: yup.string().email().required("A valid Email is required."),
     password: yup.string().min(5, "Password must be 5+ characters.").required("A password is required.")
 })
 
-function CreateAccount() {
+function Login() {
    
     const {
         register,
@@ -21,20 +19,6 @@ function CreateAccount() {
     })
 
     const inputFields = [
-        {
-            label: "First Name",
-            name: "firstName",
-            inputType: "text",
-            placeholder: "E.g. John",
-            
-        },
-        {
-            label: "Last Name",
-            name: "lastName",
-            inputType: "text",
-            placeholder: "E.g. Doe",
-            
-        },
         {
             label: "Email",
             name: "email",
@@ -56,11 +40,9 @@ function CreateAccount() {
         console.log('data', data)
     }
 
-    console.log("errors", errors)
-
     return (
         <form className="w-11/12 md:w-6/12 lg:w-4/12 xl:w-3/12 mx-auto space-y-4 mt-6 border rounded-md p-8" onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="text-2xl"><strong>Create An Account</strong></h1>
+            <h1 className="text-2xl"><strong>Log In</strong></h1>
             <div className="space-y-2">
                 {inputFields.map(field => {
                     return (
@@ -74,17 +56,20 @@ function CreateAccount() {
                     )
                 })}
             </div>
-            
+            <div className="flex flex-row justify-between px-4">
+                <div className="font-semibold">Remember Me</div>
+                <a href="#" className="text-indigo-500 font-semibold">Forgot Password</a>
+            </div>
             <div>
                 <button className="bg-indigo-500 text-white w-full py-3 rounded-md" type="submit">
-                    Create An Account
+                    Log In
                 </button>
             </div>
-            <div>Have an account? <Link to="/auth/login" className="text-indigo-500">
-                    <strong>Log in</strong>
+            <div>Don't have an account? <Link to="/auth/register" className="text-indigo-500">
+                    <strong>Register</strong>
                 </Link>     
             </div>
         </form>)
 }
 
-export default CreateAccount
+export default Login
