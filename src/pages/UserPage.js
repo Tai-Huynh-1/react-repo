@@ -3,7 +3,9 @@ import UserContainer from '../components/redux/user/UserContainer'
 
 const UserPage = () => {
   return (
-    <div><UserContainer /></div>
+    <div>
+      <UserContainer />
+    </div>
   )
 }
 

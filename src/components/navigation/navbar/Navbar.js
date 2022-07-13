@@ -13,8 +13,8 @@ const Navbar = () => {
             </div>
 
             <div className='my-auto space-x-6'>
-                <Link to="/pizza">Pizza</Link>
-                <Link to="/user">User</Link>
+                <Link to="/pizzas">Pizza</Link>
+                <Link to="/users">User</Link>
             </div>
             
             <div className='my-auto space-x-3'>

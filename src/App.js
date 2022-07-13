@@ -14,12 +14,13 @@ function App() {
       <Layout>
         <Routes> 
 
-          <Route path="/" element={<Home />} />
-          <Route path="/pizza" element={<PizzaPage />} />
-
-          <Route path="/user" element={<UserPage />}>
-            <Route path=":username" element={<ProfilePage />} />
+          <Route path="/" element={<Home />}>
+            <Route path="pizzas" element={<PizzaPage />} />
+            <Route path="users" element={<UserPage />}>
+              <Route path=":username" element={<ProfilePage />} />
+            </Route>
           </Route>
+
 
           <Route path="/auth">
             <Route path="login" element={<LoginPage />} />
