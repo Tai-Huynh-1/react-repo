@@ -1,12 +1,12 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
-const Home = () => {
+const AuthRoute = () => {
   return (
     <div>
-      Home Page
+        <Outlet />
     </div>
   )
 }
 
-export default Home
+export default AuthRoute

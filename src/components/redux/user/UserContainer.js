@@ -36,7 +36,7 @@ const UserContainer = () => {
         <ul className='space-y-2 border rounded-md p-4'>
             {users.map((name, idx) => {
                 return <li key={idx} className="text-2xl">
-                    <Link to={`/user/${name}`}>
+                    <Link to={`/users/${name}`}>
                         {name}
                     </Link>
                 </li>
