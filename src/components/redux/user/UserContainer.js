@@ -34,10 +34,10 @@ const UserContainer = () => {
             <button className="bg-indigo-500 text-white px-3 py-2 rounded-md" onClick={resetUserHandler}>Reset User List</button>
         </div>
         <ul className='space-y-2 border rounded-md p-4'>
-            {users.map((name, idx) => {
+            {users.map((userId, idx) => {
                 return <li key={idx} className="text-2xl">
-                    <Link to={`/users/${name}`}>
-                        {name}
+                    <Link to={`/users/${userId}`}>
+                        User Id: {userId}
                     </Link>
                 </li>
             })}

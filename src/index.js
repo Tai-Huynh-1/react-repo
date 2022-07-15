@@ -15,6 +15,7 @@ import LoginPage from "./pages/auth/LoginPage"
 import RegisterPage from "./pages/auth/RegisterPage"
 import UserRoute from './routes/user';
 import AuthRoute from './routes/auth';
+import NotFound from './pages/404/NotFound';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,18 +28,21 @@ root.render(
               <Route index element={<HomePage />} />
 
               <Route path="pizzas" element={<PizzaPage />} />
+
               <Route path="users" element={<UserRoute />}>
-                <Route path=":username" element={<ProfilePage />} />
                 <Route index element={<UserPage />} />
+                <Route path=":userId" element={<ProfilePage />} />
               </Route>
 
               <Route path="auth" element={<AuthRoute />}>
                   <Route path="login" element={<LoginPage />} />
                   <Route path="register" element={<RegisterPage />} />
+                  <Route index element={<NotFound />} />
+                  <Route path="*" element={<NotFound />} />
               </Route>
-            </Route>
-         
 
+              <Route path="*" element={<NotFound />} />
+            </Route>
 
         </Routes>
       </Provider>
