@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux/es/exports"
+import useProfileUser from "../../../hooks/useProfileUser"
 import { buyPizza, returnPizza, resetPizza } from "../../../redux/pizza/pizzaActions"
 
 
@@ -7,6 +8,7 @@ const PizzaContainer = () => {
     const numOfPizza = useSelector((state) => state.pizza.numOfPizza)
     const dispatch = useDispatch()
     const [quantity, setQuantity] = useState(0)
+    const profileUser = useProfileUser(8)
 
     const buyPizzaHandler = () => {
         dispatch(buyPizza(quantity))
@@ -32,6 +34,11 @@ const PizzaContainer = () => {
             <button className="bg-emerald-500 text-white px-3 py-2 rounded-md" onClick={buyPizzaHandler} disabled={quantity === 0 ? true : false}>Buy Pizza</button>
             <button className="bg-red-500 text-white px-3 py-2 rounded-md" onClick={returnPizzaHandler} disabled={quantity === 0 ? true : false}>Return Pizza</button>
             {numOfPizza !== 100 && <button className="bg-indigo-500 text-white px-3 py-2 rounded-md" onClick={resetPizzaHandler}>Reset Number Of Pizza</button> }
+        </div>
+
+        <div className="border">
+            <h2>My Profile User</h2>
+            <p>{JSON.stringify(profileUser)}</p>
         </div>
     </div>)
 }
