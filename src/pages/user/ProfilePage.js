@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
+import Clock from '../../components/class/Clock';
+import ClockClock from '../../components/class/ClockClass';
 import UserCard from "../../components/user/UserCard"
 import useProfileUser from '../../hooks/useProfileUser';
 
@@ -28,6 +30,8 @@ const ProfilePage = () => {
   return (
     <div>
       {profileUser && <UserCard user={profileUser} />}
+      <Clock date={new Date()} />
+      <ClockClock />
     </div>
   )
 }
